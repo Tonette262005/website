@@ -1,0 +1,349 @@
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between; /* Align profile and navigation menu at opposite ends */
+    align-items: center; /* Vertically align items in the center */
+    padding: 20px;
+    background-color: darkgray;
+}
+
+/* Profile Menu */
+.profile-menu {
+    display: flex; /* Align profile icon and name horizontally */
+    align-items: center; /* Vertically center the profile elements */
+    position: relative;
+}
+
+.profile-icon {
+    display: flex;
+    align-items: center;
+    margin-right: 10px; /* Space between profile icon and name */
+}
+
+.profile-icon img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.profile-icon h4 {
+    margin-left: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Dropdown Menu */
+.dropdown {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    display: none;
+    flex-direction: column;
+    width: 200px;
+    padding: 10px;
+    z-index: 20;
+}
+
+.dropdown .profile-info {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.dropdown .profile-info p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.dropdown-options a {
+    text-decoration: none;
+    color: black;
+    padding: 5px 0;
+    display: block;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.dropdown-options a:hover {
+    background-color: #f3f3f3;
+}
+
+.profile-menu.active .dropdown {
+    display: flex;
+}
+
+/* Navigation Menu */
+.nav-menu {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+    background-color: grey;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.nav-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Filters */
+.filters {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.filters .filter-btn {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.filters .filter-btn:hover {
+    background-color: #ddd;
+}
+
+/* Product Grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+/* Product Cards */
+.product-card {
+    background-color: #333;
+    border-radius: 10px;
+    color: white;
+    width: 200px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    position: relative;
+    transform: translateY(0);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+    transform: translateY(-10px);
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transform: scale(1.2) translateY(0);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.product-card:hover img {
+    transform: scale(1.1) translateY(-20%);
+    opacity: 0.8;
+}
+
+.product-card .name {
+    font-size: 16px;
+    margin: 5px 0;
+    z-index: 1;
+}
+
+.product-card .price {
+    font-size: 14px;
+    margin-bottom: 10px;
+    z-index: 1;
+}
+
+.product-card .buy-btn {
+    background-color: black;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    z-index: 1;
+}
+
+.product-card .buy-btn:hover {
+    background-color: #555;
+}
+
+/* Modal styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal h4 {
+    color: white;
+}
+
+/* Modal content styling */
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 500px;
+    max-width: 90%;
+    height: auto;
+    max-height: 500px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    position: relative;
+    overflow-y: auto;
+}
+
+/* Image styling inside the modal */
+.modal-content img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+
+/* Positioning the username in the top-left corner of the modal */
+.modal-username {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;  /* Set color to black to make it visible */
+}
+
+
+
+
+
+.cart-item {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.cart-item img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.cart-item-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-total {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.checkout-btn {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.checkout-btn:hover {
+    background-color: #218838;
+}
+/* Close button styling */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #000;  /* Close button color */
+}
+
+/* Button styling */
+.buy-btn {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.buy-btn:hover {
+    background-color: #45a049;
+}
+
+/* Styling for the quantity input field */
+#quantity {
+    width: 50px;
+    margin-top: 5px;
+    padding: 5px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Checkout Section */
+#checkout-section {
+    margin: 20px 0;
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+}
+
+/* Cart */
+.cart-icon .checkout-link {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Space between text and icons */
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+
+.cart-icon .checkout-link img {
+    vertical-align: middle;
+}
